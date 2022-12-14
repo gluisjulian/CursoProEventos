@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using ProEventos.API.Context;
-using ProEventos.API.Model;
+using ProEventos.Domain.Entities;
+using ProEventos.Persistence.Context;
 
 namespace ProEventos.API.Controllers
 {
