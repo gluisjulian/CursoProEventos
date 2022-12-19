@@ -22,5 +22,12 @@ namespace ProEventos.API.Controllers
         {
             return _context.Eventos.ToList();
         }
+
+
+        [HttpGet("{id}")]
+        public Evento GetById(int id)
+        {
+            return _context.Eventos.FirstOrDefault(x => x.Id == id);
+        }
     }
 }
