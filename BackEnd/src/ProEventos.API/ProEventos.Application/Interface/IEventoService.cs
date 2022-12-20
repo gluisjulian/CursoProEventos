@@ -10,7 +10,7 @@ namespace ProEventos.Application.Interface
 
 
         Task<Evento[]> GetAllEventosAsync(bool includePalestrantes = false);
-        Task<Evento[]> GetAllEventosByTemaAsync(string tema, bool includePalestrantes = false);
+        Task<Evento[]> GetAllEventosByTema(string tema, bool includePalestrantes = false);
         Task<Evento> GetEventoByIdAsync(int enventoId, bool includePalestrantes = false);
 
     }
