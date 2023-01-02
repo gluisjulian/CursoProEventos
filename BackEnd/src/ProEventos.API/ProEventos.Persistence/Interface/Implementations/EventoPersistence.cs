@@ -11,6 +11,7 @@ namespace ProEventos.Persistence.Interface.Implementations
         public EventoPersistence(ProEventosContext context)
         {
             _context= context;
+            //_context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking; //Funciona para toda a classe
         }
 
 
@@ -26,7 +27,7 @@ namespace ProEventos.Persistence.Interface.Implementations
                     .ThenInclude(pe => pe.Palestrante);
             }
 
-            query = query.OrderBy(e => e.Id);
+            query = query.AsNoTracking().OrderBy(e => e.Id);
 
             return await query.ToArrayAsync();
         }
@@ -43,7 +44,7 @@ namespace ProEventos.Persistence.Interface.Implementations
                     .ThenInclude(pe => pe.Palestrante);
             }
 
-            query = query.OrderBy(e => e.Id).Where(e => e.Tema.ToLower().Contains(tema.ToLower()));
+            query = query.AsNoTracking().OrderBy(e => e.Id).Where(e => e.Tema.ToLower().Contains(tema.ToLower()));
 
             return await query.ToArrayAsync();
         }
@@ -60,7 +61,7 @@ namespace ProEventos.Persistence.Interface.Implementations
                     .ThenInclude(pe => pe.Palestrante);
             }
 
-            query = query.OrderBy(e => e.Id).Where(e => e.Id == enventoId);
+            query = query.AsNoTracking().OrderBy(e => e.Id).Where(e => e.Id == enventoId);
 
             return await query.FirstOrDefaultAsync();
         }
