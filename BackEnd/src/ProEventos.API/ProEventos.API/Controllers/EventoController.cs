@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using ProEventos.Application.DTOs;
 using ProEventos.Application.Interface;
 using ProEventos.Domain.Entities;
-using ProEventos.Persistence.Context;
 
 namespace ProEventos.API.Controllers
 {
@@ -71,7 +71,7 @@ namespace ProEventos.API.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> AddEvento(Evento model)
+        public async Task<IActionResult> AddEvento(EventoDTO model)
         {
             try
             {
@@ -88,7 +88,7 @@ namespace ProEventos.API.Controllers
 
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateEvento(int id, Evento model)
+        public async Task<IActionResult> UpdateEvento(int id, EventoDTO model)
         {
             try
             {
