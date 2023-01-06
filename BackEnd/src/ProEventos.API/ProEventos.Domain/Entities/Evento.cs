@@ -1,6 +1,6 @@
 ﻿namespace ProEventos.Domain.Entities
 {
-
+    [Table("")]
     public class Evento
     {
         public int Id { get; set; }
